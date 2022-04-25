@@ -1,0 +1,13 @@
+name: BRHD_CHA
+title: BRHD_CHA
+username:
+account: charrison
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 5975844
+bundleId: 5835437
+url: https://charrison.shinyapps.io/BRHD_CHA/
+when: 1650911297.93915
+lastSyncTime: 1650911297.93915
+asMultiple: FALSE
+asStatic: FALSE
