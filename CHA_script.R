@@ -12,6 +12,13 @@ hlth <- read.csv("healthcare.csv", header = T)
 risk <- read.csv("risk.csv", header = T)
 outcomes <- read.csv("outcomes.csv", header = T)
 
+hlth_pov <- read.csv("healthcare_pov.csv", header = T)
+risk_pov <- read.csv("risk_pov.csv", header = T)
+outcomes_pov <- read.csv("outcomes_pov.csv", header = T)
+
+hlth_race <- read.csv("healthcare_race.csv", header = T)
+risk_race <- read.csv("risk_race.csv", header = T)
+outcomes_race <- read.csv("outcomes_race.csv", header = T)
 
 
 #Color List
