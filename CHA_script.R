@@ -7,6 +7,8 @@ library(formattable)
 library(data.table)
 library(lubridate)
 
+#Testing GITHUB
+
 dem <- read.csv("dem.csv", header = T)
 hlth <- read.csv("healthcare.csv", header = T)
 risk <- read.csv("risk.csv", header = T)
