@@ -1,3 +1,4 @@
+setwd("C:/Users/tstoker/Desktop/RWD")
 rm(list=ls())
 library(tidyr)
 library(dplyr)
@@ -6,6 +7,7 @@ library(reactable)
 library(formattable)
 library(data.table)
 library(lubridate)
+library(ggplot2)
 
 #Testing GITHUB 2
 
@@ -87,6 +89,12 @@ hlth$Year <- as.integer(hlth$Year)
 
 #from column 3 to the end make into a percentage
 hlth[3:ncol(hlth)] <- hlth[3:ncol(hlth)] %>% 
+  mutate_if(is.numeric, ~ . * 100)
+
+hlth_race[3:ncol(hlth_race)] <- hlth_race[3:ncol(hlth_race)] %>% 
+  mutate_if(is.numeric, ~ . * 100)
+
+hlth_pov[3:ncol(hlth_pov)] <- hlth_pov[3:ncol(hlth_pov)] %>% 
   mutate_if(is.numeric, ~ . * 100)
 
 #Pivot wider...kind of- Create new data set that is the data just for BRHD and take of region variable and rename each variable br_hlth
@@ -300,6 +308,13 @@ ins <- ins %>% layout(title = 'Percent of Adults with Health Insurance',
                       xaxis = list(title = 'Year'),
                       yaxis = list(title = 'Percent'))
 
+ins_pov <- ggplot(hlth_pov, aes(y=hlcov_cr, x=Poverty_Status)) +
+  geom_bar(stat = "identity") +
+  theme_classic() +
+  labs(title = "Percent of Adults with Health Insurance by Poverty Level", y="Percent", x="Poverty") +
+  geom_errorbar( aes(x=Poverty_Status, ymin=hlcov_cr_lci, ymax=hlcov_cr_uci))
+                 
+ins_pov
 
 ###AA Insured
 #Cache
@@ -1655,8 +1670,54 @@ hlth_table <- bind_cols(`2020 Access to Care Indicators` = c('Percent of Adults 
                                     paste(last(hlth_wide$ca_col_scree_cr),'%', sep = ''),
                                     paste(last(hlth_wide$ca_pn_perc),'%', sep = ''),
                                     paste(last(hlth_wide$ca_fluvac_cr),'%', sep = '')))
+                      
 #Creates the drop down menu that shows the graph
 hlth_react <- reactable(hlth_table, resizable = TRUE, showPageSizeOptions = TRUE,
+                        onClick = 'expand', highlight = TRUE, rowStyle = list(cursor = 'pointer'),
+                        details = function(index) {
+                          if (index == 1) {
+                            htmltools::div(style = "padding: 25px", ins)
+                          } else if (index == 2) {
+                            htmltools::div(style = "padding: 25px", no_care)
+                          } else if (index == 3) {
+                            htmltools::div(style = "padding: 25px", hlth_pro)
+                          } else if (index == 4) {
+                            htmltools::div(style = "padding: 25px", med_check)
+                          } else if (index == 5) {
+                            htmltools::div(style = "padding: 25px", dent_check)
+                          } else if (index == 6) {
+                            htmltools::div(style = "padding: 25px", mammo)
+                          } else if (index == 7) {
+                            htmltools::div(style = "padding: 25px", col_scree)
+                          } else if (index == 8) {
+                            htmltools::div(style = "padding: 25px", pn_perc)
+                          } else if (index == 9) {
+                            htmltools::div(style = "padding: 25px", fluvac)
+                          }
+                        })
+#Health Poverty#
+
+hlth_pov_table <- bind_cols(`Poverty` = c('Percent of Adults with Health Insurance by Poverty Level',
+                                                             'Percent of Adults Unable to Afford Needed Care',
+                                                             'Percent of Adults with a Usual Primary Care Provider',
+                                                             'Percent of Adults who Received a Routine Medical Check-Up in the Last 12 months',
+                                                             'Percent of Adults who Received a Routine Dental Check-Up in the Last 12 months',
+                                                             'Percent of Women 40+ Who Had a Mammogram in the Previous Two Years',
+                                                             'Percent of Adults 50+ who were up-to-date with Colorectal Cancer Screening',
+                                                             'Percent of Births Where the Mother Received First Trimester Prenatal Care',
+                                                             'Percent of Adults Receiving Flu Vaccination in Last 12 Months'),
+                        `Bear River` = c(paste(last(hlth_pov$hlcov_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_no_care_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_hlth_pro_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_med_check_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_dent_check_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_mammo_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_col_scree_cr),'%', sep = ''),
+                                         paste(last(hlth_wide$br_pn_perc),'%', sep = ''),
+                                         paste(last(hlth_wide$br_fluvac_cr),'%', sep = '')))
+                        
+#Creates the drop down menu that shows the graph
+hlth_pov_react <- reactable(hlth_table, resizable = TRUE, showPageSizeOptions = TRUE,
                         onClick = 'expand', highlight = TRUE, rowStyle = list(cursor = 'pointer'),
                         details = function(index) {
                           if (index == 1) {
@@ -2169,6 +2230,6 @@ save(list = ls(all.names = TRUE, pos = tmp.env), envir = tmp.env,
                    Sys.Date(), ".Rdata"))
 
 save(list = ls(all.names = TRUE, pos = tmp.env), envir = tmp.env,
-     file = "C:/Users/charrison/Desktop/RWD/CHA_Dash/BRHD_CHA/dashdata.Rdata")
+     file = "C:/Users/tstoker/Desktop/RWD/CHA_Dash/BRHD_CHA/dashdata.Rdata")
 
 rm(tmp.env)
