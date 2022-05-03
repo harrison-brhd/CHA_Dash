@@ -677,19 +677,19 @@ aa_col_scree <- aa_col_scree %>% layout(title = 'Age-Adjusted Percent of Adults 
                                         xaxis = list(title = 'Year'),
                                         yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(hlth_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+col_scree_pov <- ggplot(hlth_pov, aes(Poverty_Status,col_scree_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = col_scree_cr_lci, ymax = col_scree_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults 50+ who were up-to-date with Colorectal Cancer Screening by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(hlth_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+col_scree_race <- ggplot(hlth_race, aes(Race_Ethnicity,col_scree_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = col_scree_cr_lci, ymax = col_scree_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults 50+ who were up-to-date with Colorectal Cancer Screening by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -717,19 +717,19 @@ pn_perc <- pn_perc %>% layout(title = 'Percent of Births Where the Mother Receiv
                               xaxis = list(title = 'Year'),
                               yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(hlth_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+pn_perc_pov <- ggplot(hlth_pov, aes(Poverty_Status,pn_perc_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = pn_perc_cr_lci, ymax = pn_perc_cr_uci), width = 0.2) +
+  labs(title = "Percent of Births Where the Mother Received First Trimester Prenatal Care by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(hlth_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+pn_perc_race <- ggplot(hlth_race, aes(Race_Ethnicity,pn_perc_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = pn_perc_cr_lci, ymax = pn_perc_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Births Where the Mother Received First Trimester Prenatal Care by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -770,19 +770,19 @@ aa_fluvac <- aa_fluvac %>% layout(title = 'Age-Adjusted Percent of Adults Receiv
                                   xaxis = list(title = 'Year'),
                                   yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(hlth_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+fluvac_cr_pov <- ggplot(hlth_pov, aes(Poverty_Status,fluvac_cr_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = fluvac_cr_cr_lci, ymax = fluvac_cr_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Receiving Flu Vaccination in Last 12 Months by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(hlth_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+fluvac_cr_race <- ggplot(hlth_race, aes(Race_Ethnicity,fluvac_cr_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = fluvac_cr_cr_lci, ymax = fluvac_cr_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Receiving Flu Vaccination in Last 12 Months by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -810,7 +810,7 @@ adol_brths <- adol_brths %>% layout(title = 'Rate of Births among Adolescents',
 #Poverty
 adol_brths_pov <- ggplot(risk_pov, aes(Poverty_Status,adol_brths, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = adol_brthsr_lci, ymax = adol_brths_uci), width = 0.2) +
+  geom_errorbar(aes(ymin = adol_brths_lci, ymax = adol_brths_uci), width = 0.2) +
   labs(title = "Rate of Births among Adolescents by Poverty", x="Poverty Status", y="Birth Rate (per 1,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
@@ -861,19 +861,19 @@ aa_fruit <- aa_fruit %>% layout(title = 'Age-Adjusted Percent of Adults Consumin
                                 xaxis = list(title = 'Year'),
                                 yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+fruit_pov <- ggplot(risk_pov, aes(Poverty_Status,fruit_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = fruit_cr_lci, ymax = fruit_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Consuming the Recommended Amount of Fruit by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+fruit_race <- ggplot(risk_race, aes(Race_Ethnicity,fruit_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = fruit_cr_lci, ymax = fruit_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Consuming the Recommended Amount of Fruit by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -915,19 +915,19 @@ aa_veg <- aa_veg %>% layout(title = 'Age-Adjusted Percent of Adults Consuming th
                             xaxis = list(title = 'Year'),
                             yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+veg_pov <- ggplot(risk_pov, aes(Poverty_Status,veg_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = veg_cr_lci, ymax = veg_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Consuming the Recommended Amount of Vegetables by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+veg_race <- ggplot(risk_race, aes(Race_Ethnicity,veg_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = veg_cr_lci, ymax = veg_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Consuming the Recommended Amount of Vegetables by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -969,19 +969,19 @@ aa_phy_act <- aa_phy_act %>% layout(title = 'Age-Adjusted Percent of Adults Gett
                                     yaxis = list(title = 'Percent'))
 
 #Poverty
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+phy_act_pov <- ggplot(risk_pov, aes(Poverty_Status,phy_act_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = phy_act_cr_lci, ymax = phy_act_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Getting the Recommended Amount of Aerobic Physical Activity and Muscle Strengthening by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+phy_act_race <- ggplot(risk_race, aes(Race_Ethnicity,phy_act_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = phy_act_cr_lci, ymax = phy_act_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Getting the Recommended Amount of Aerobic Physical Activity and Muscle Strengthening by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1023,19 +1023,19 @@ aa_cig_smkng <- aa_cig_smkng %>% layout(title = 'Age-Adjusted Percent of Adults 
                                         xaxis = list(title = 'Year'),
                                         yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+cig_smkng_pov <- ggplot(risk_pov, aes(Poverty_Status,cig_smkng_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = cig_smkng_cr_lci, ymax = cig_smkng_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Currently Smoking by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+cig_smkng_race <- ggplot(risk_race, aes(Race_Ethnicity,cig_smkng_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = cig_smkng_lci, ymax = cig_smkng_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Currently Smoking by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1059,19 +1059,19 @@ aa_ecig <- aa_ecig %>% layout(title = 'Age-Adjusted Percent of Adults Currently 
                               xaxis = list(title = 'Year'),
                               yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+ecig_pov <- ggplot(risk_pov, aes(Poverty_Status,ecig_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = ecig_cr_lci, ymax = ecig_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Currently Using E-cigarettes by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+ecig_race <- ggplot(risk_race, aes(Race_Ethnicity,ecig_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = ecig_cr_lci, ymax = ecig_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Currently Using E-cigarettes by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1113,19 +1113,19 @@ aa_bnge_drnkng <- aa_bnge_drnkng %>% layout(title = 'Age-Adjusted Percent of Adu
                                             xaxis = list(title = 'Year'),
                                             yaxis = list(title = 'Percent'))
 #Poverty bar graph
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+bnge_drnkng_pov <- ggplot(risk_pov, aes(Poverty_Status,bnge_drnkng_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = bnge_drnkng_cr_lci, ymax = bnge_drnkng_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Currently at Risk for Binge Drinking by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race bar graph
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+bnge_drnkng_race <- ggplot(risk_race, aes(Race_Ethnicity,bnge_drnkng_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = bnge_drnkng_cr_lci, ymax = bnge_drnkng_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Currently at Risk for Binge Drinking by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1167,19 +1167,19 @@ aa_st_blt <- aa_st_blt %>% layout(title = 'Age-Adjusted Percent of Adults Who Al
                                   yaxis = list(title = 'Percent'))
 
 #Poverty
-ins_pov <- ggplot(risk_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+st_blt_pov <- ggplot(risk_pov, aes(Poverty_Status,st_blt_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = st_blt_cr_lci, ymax = st_blt_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who Always or Nearly Always Wear a Seat Belt by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(risk_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+st_blt_race <- ggplot(risk_race, aes(Race_Ethnicity,st_blt_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = st_blt_cr_lci, ymax = st_blt_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who Always or Nearly Always Wear a Seat Belt by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1365,19 +1365,19 @@ aa_drug_poi <- aa_drug_poi %>% layout(title = 'Age-Adjusted Drug Poisoning Morta
                                       xaxis = list(title = 'Year'),
                                       yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+drug_poi_pov <- ggplot(outcomes_pov, aes(Poverty_Status,drug_poi_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = drug_poi_cr_lci, ymax = drug_poi_cr_uci), width = 0.2) +
+  labs(title = "Drug Poisoning Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+drug_poi_race <- ggplot(outcomes_race, aes(Race_Ethnicity,drug_poi_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = drug_poi_cr_lci, ymax = drug_poi_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Drug Poisoning Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1418,19 +1418,19 @@ aa_falls <- aa_falls %>% layout(title = 'Age-Adjusted Falls Mortality Rates by C
                                 xaxis = list(title = 'Year'),
                                 yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+falls_pov <- ggplot(outcomes_pov, aes(Poverty_Status,falls_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = falls_cr_lci, ymax = falls_cr_uci), width = 0.2) +
+  labs(title = "Falls Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+falls_race <- ggplot(outcomes_race, aes(Race_Ethnicity,falls_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = falls_cr_lci, ymax = falls_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Falls Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1471,19 +1471,19 @@ aa_sui <- aa_sui %>% layout(title = 'Age-Adjusted Suicide Mortality Rates by Cou
                             xaxis = list(title = 'Year'),
                             yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+sui_pov <- ggplot(outcomes_pov, aes(Poverty_Status,sui_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = sui_cr_lci, ymax = sui_cr_uci), width = 0.2) +
+  labs(title = "Suicide Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+sui_race <- ggplot(outcomes_race, aes(Race_Ethnicity,sui_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = sui_lci, ymax = sui_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Suicide Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1524,19 +1524,19 @@ aa_mort_diab <- aa_mort_diab %>% layout(title = 'Age-Adjusted Diabetes Mortality
                                         xaxis = list(title = 'Year'),
                                         yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_diab_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_diab_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_diab_cr_lci, ymax = mort_diab_cr_uci), width = 0.2) +
+  labs(title = "Diabetes Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_diab_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_diab_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_diab_cr_lci, ymax = mort_diab_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Diabetes Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1577,19 +1577,19 @@ aa_mort_cvs <- aa_mort_cvs %>% layout(title = 'Age-Adjusted Cerebrovascular Mort
                                       xaxis = list(title = 'Year'),
                                       yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_cvs_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_cvs_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_cvs_cr_lci, ymax = mort_cvs_cr_uci), width = 0.2) +
+  labs(title = "Cerebrovascular Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_cvs_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_cvs_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_cvs_cr_lci, ymax = mort_cvs_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Cerebrovascular Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1630,19 +1630,19 @@ aa_mort_can <- aa_mort_can %>% layout(title = 'Age-Adjusted Cancer Mortality Rat
                                       xaxis = list(title = 'Year'),
                                       yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_can_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_can_lci, ymax = mort_can_cr_uci), width = 0.2) +
+  labs(title = "Cancer Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_can_cr_lci, ymax = mort_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1683,19 +1683,19 @@ aa_mort_lung_can <- aa_mort_lung_can %>% layout(title = 'Age-Adjusted Lung Cance
                                                 xaxis = list(title = 'Year'),
                                                 yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_lung_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_lung_can_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_lung_can_cr_lci, ymax = mort_lung_can_cr_uci), width = 0.2) +
+  labs(title = "Lung Cancer Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_lung_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_lung_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_lung_can_cr_lci, ymax = mort_lung_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Lung Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1736,19 +1736,19 @@ aa_mort_brst_can <- aa_mort_brst_can %>% layout(title = 'Age-Adjusted Breast Can
                                                 xaxis = list(title = 'Year'),
                                                 yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_brst_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_brst_can_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_brst_can_cr_lci, ymax = mort_brst_can_cr_uci), width = 0.2) +
+  labs(title = "Breast Cancer Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_brst_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_brst_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_brst_can_cr_lci, ymax = mort_brst_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Breast Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1788,19 +1788,19 @@ aa_mort_colrect_can <- aa_mort_colrect_can %>% layout(title = 'Age-Adjusted Colo
                                                       xaxis = list(title = 'Year'),
                                                       yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_colrect_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_colrect_can_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_colrect_can_cr_lci, ymax = mort_colrect_can_cr_uci), width = 0.2) +
+  labs(title = "Colorectal Cancer Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_colrect_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_colrect_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_colrect_can_cr_lci, ymax = mort_colrect_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Colorectal Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1841,19 +1841,19 @@ aa_mort_pros_can <- aa_mort_pros_can %>% layout(title = 'Age-Adjusted Prostate C
                                                 xaxis = list(title = 'Year'),
                                                 yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_pros_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_pros_can_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_pros_can_cr_lci, ymax = mort_pros_can_cr_uci), width = 0.2) +
+  labs(title = "Prostate Cancer Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_pros_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_pros_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_pros_can_lci, ymax = mort_pros_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Prostate Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -1894,19 +1894,19 @@ aa_mort_skin_can <- aa_mort_skin_can %>% layout(title = 'Age-Adjusted Skin Cance
                                                 xaxis = list(title = 'Year'),
                                                 yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+mort_skin_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_skin_can_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_skin_can_cr_lci, ymax = mort_skin_can_cr_uci), width = 0.2) +
+  labs(title = "Skin Cancer Mortality Rates by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+mort_skin_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_skin_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
+  geom_errorbar(aes(ymin = mort_skin_can_cr_lci, ymax = mort_skin_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Skin Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2019,19 +2019,19 @@ aa_rape <- aa_rape %>% layout(title = 'Age-Adjusted Percent of Adults Who have E
                               xaxis = list(title = 'Year'),
                               yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+rape_pov <- ggplot(outcomes_pov, aes(Poverty_Status,rape_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = rape_cr_lci, ymax = rape_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who have Experienced Rape or Attempted Rape by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+rape_race <- ggplot(outcomes_race, aes(Race_Ethnicity,rape_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = rape_cr_lci, ymax = rape_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who have Experienced Rape or Attempted Rape by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2072,19 +2072,19 @@ aa_phy_hlth <- aa_phy_hlth %>% layout(title = 'Age-Adjusted Percent of Adults Wh
                                       xaxis = list(title = 'Year'),
                                       yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+phy_hlth_pov <- ggplot(outcomes_pov, aes(Poverty_Status,phy_hlth_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = phy_hlth_cr_lci, ymax = phy_hlth_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who had <7 days of Poor Physical Health in the Last 30 Days by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+phy_hlth_race <- ggplot(outcomes_race, aes(Race_Ethnicity,phy_hlth_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = phy_hlth_cr_lci, ymax = phy_hlth_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who had <7 days of Poor Physical Health in the Last 30 Days by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2125,19 +2125,19 @@ aa_ment_hlth <- aa_ment_hlth %>% layout(title = 'Age-Adjusted Percent of Adults 
                                         xaxis = list(title = 'Year'),
                                         yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+ment_hlth_pov <- ggplot(outcomes_pov, aes(Poverty_Status,ment_hlth_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = ment_hlth_cr_lci, ymax = ment_hlth_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who had <7 days of Poor Mental Health in the Last 30 Days by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+ment_hlth_race <- ggplot(outcomes_race, aes(Race_Ethnicity,ment_hlth_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = ment_hlth_cr_lci, ymax = ment_hlth_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who had <7 days of Poor Mental Health in the Last 30 Days by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2178,19 +2178,19 @@ aa_arthrits <- aa_arthrits %>% layout(title = 'Age-Adjusted Percent of Adults Wh
                                       xaxis = list(title = 'Year'),
                                       yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+arthrits_pov <- ggplot(outcomes_pov, aes(Poverty_Status,arthrits_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = arthrits_cr_lci, ymax = arthrits_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who have Diagnosed Arthritis by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+arthrits_race <- ggplot(outcomes_race, aes(Race_Ethnicity,arthrits_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = arthrits_cr_lci, ymax = arthrits_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who have Diagnosed Arthritis by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2230,19 +2230,19 @@ aa_astma <- aa_astma %>% layout(title = 'Age-Adjusted Percent of Adults Who Curr
                                 xaxis = list(title = 'Year'),
                                 yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+astma_pov <- ggplot(outcomes_pov, aes(Poverty_Status,astma_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = astma_cr_lci, ymax = astma_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who Currently have Diagnosed Asthma by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+astma_race <- ggplot(outcomes_race, aes(Race_Ethnicity,astma_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = astma_cr_lci, ymax = astma_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who Currently have Diagnosed Asthma by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2283,19 +2283,19 @@ aa_diab <- aa_diab %>% layout(title = 'Age-Adjusted Percent of Adults Who have b
                               xaxis = list(title = 'Year'),
                               yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+diab_pov <- ggplot(outcomes_pov, aes(Poverty_Status,diab_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = diab_cr_lci, ymax = diab_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who have been Told they have Diabetes by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+diab_race <- ggplot(outcomes_race, aes(Race_Ethnicity,diab_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = diab_cr_lci, ymax = diab_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who have been Told they have Diabetes by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
@@ -2336,19 +2336,19 @@ aa_prediabets <- aa_prediabets %>% layout(title = 'Age-Adjusted Percent of Adult
                                           xaxis = list(title = 'Year'),
                                           yaxis = list(title = 'Percent'))
 #Poverty
-ins_pov <- ggplot(outcomes_pov, aes(Poverty_Status,hlcov_cr, fill = Poverty_Status)) +
+prediabets_pov <- ggplot(outcomes_pov, aes(Poverty_Status,prediabets_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width = 0.2) +
-  labs(title = "Percent of Adults with Health Insurance by Poverty", x="Poverty Status", y="Percent") +
+  geom_errorbar(aes(ymin = prediabets_cr_lci, ymax = prediabets_cr_uci), width = 0.2) +
+  labs(title = "Percent of Adults Who have been Told they have Pre-diabetes by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-ins_race <- ggplot(outcomes_race, aes(Race_Ethnicity,hlcov_cr, fill= Race_Ethnicity)) +
+prediabets_race <- ggplot(outcomes_race, aes(Race_Ethnicity,prediabets_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = hlcov_cr_lci, ymax = hlcov_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
-  labs(title = "Percent of Adults with Health Insurance by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
+  geom_errorbar(aes(ymin = prediabets_cr_lci, ymax = prediabets_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  labs(title = "Percent of Adults Who have been Told they have Pre-diabetes by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
