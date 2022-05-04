@@ -770,18 +770,18 @@ aa_fluvac <- aa_fluvac %>% layout(title = 'Age-Adjusted Percent of Adults Receiv
                                   xaxis = list(title = 'Year'),
                                   yaxis = list(title = 'Percent'))
 #Poverty
-fluvac_cr_pov <- ggplot(hlth_pov, aes(Poverty_Status,fluvac_cr_cr, fill = Poverty_Status)) +
+fluvac_pov <- ggplot(hlth_pov, aes(Poverty_Status,fluvac_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = fluvac_cr_cr_lci, ymax = fluvac_cr_cr_uci), width = 0.2) +
+  geom_errorbar(aes(ymin = fluvac_cr_lci, ymax = fluvac_cr_uci), width = 0.2) +
   labs(title = "Percent of Adults Receiving Flu Vaccination in Last 12 Months by Poverty", x="Poverty Status", y="Percent") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-fluvac_cr_race <- ggplot(hlth_race, aes(Race_Ethnicity,fluvac_cr_cr, fill= Race_Ethnicity)) +
+fluvac_race <- ggplot(hlth_race, aes(Race_Ethnicity,fluvac_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = fluvac_cr_cr_lci, ymax = fluvac_cr_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  geom_errorbar(aes(ymin = fluvac_cr_lci, ymax = fluvac_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
   labs(title = "Percent of Adults Receiving Flu Vaccination in Last 12 Months by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
@@ -1034,7 +1034,7 @@ cig_smkng_pov <- ggplot(risk_pov, aes(Poverty_Status,cig_smkng_cr, fill = Povert
 #Race
 cig_smkng_race <- ggplot(risk_race, aes(Race_Ethnicity,cig_smkng_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = cig_smkng_lci, ymax = cig_smkng_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  geom_errorbar(aes(ymin = cig_smkng_cr_lci, ymax = cig_smkng_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
   labs(title = "Percent of Adults Currently Smoking by Race/Ethinicity", x="Race/Ethnicity", y="Percent") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
@@ -1259,18 +1259,18 @@ aa_unint_inj <- aa_unint_inj %>% layout(title = 'Age-Adjusted Unintentional Inju
                                         xaxis = list(title = 'Year'),
                                         yaxis = list(title = 'Mortality Rate (per 100,000)'))
 #Poverty
-unint_inj_pov <- ggplot(outcomes_pov, aes(Poverty_Status,unint_inj, fill = Poverty_Status)) +
+unint_inj_pov <- ggplot(outcomes_pov, aes(Poverty_Status,unint_inj_cr, fill = Poverty_Status)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = unint_inj_lci, ymax = unint_inj_uci), width = 0.2) +
+  geom_errorbar(aes(ymin = unint_inj_cr_lci, ymax = unint_inj_cr_uci), width = 0.2) +
   labs(title = "Unintentional Injury Mortality Rates by County by Poverty", x="Poverty Status", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(values = c(BRHD_cols[[1]], BRHD_cols[[3]])) +
   theme(axis.title = element_text(size = 12), axis.text.y = element_text(size = 12), axis.text.x = element_text(size = 12)) +
   theme(plot.title = element_text(size=13, hjust = 0.5, face = "bold"))
 #Race
-unint_inj_race <- ggplot(outcomes_race, aes(Race_Ethnicity,unint_inj, fill= Race_Ethnicity)) +
+unint_inj_race <- ggplot(outcomes_race, aes(Race_Ethnicity,unint_inj_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = unint_inj_lci, ymax = unint_inj_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  geom_errorbar(aes(ymin = unint_inj_cr_lci, ymax = unint_inj_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
   labs(title = "Unintentional Injury Mortality Rates by County by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
@@ -1482,7 +1482,7 @@ sui_pov <- ggplot(outcomes_pov, aes(Poverty_Status,sui_cr, fill = Poverty_Status
 #Race
 sui_race <- ggplot(outcomes_race, aes(Race_Ethnicity,sui_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = sui_lci, ymax = sui_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  geom_errorbar(aes(ymin = sui_cr_lci, ymax = sui_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
   labs(title = "Suicide Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
@@ -1852,7 +1852,7 @@ mort_pros_can_pov <- ggplot(outcomes_pov, aes(Poverty_Status,mort_pros_can_cr, f
 #Race
 mort_pros_can_race <- ggplot(outcomes_race, aes(Race_Ethnicity,mort_pros_can_cr, fill= Race_Ethnicity)) +
   geom_bar(stat = "identity") +
-  geom_errorbar(aes(ymin = mort_pros_can_lci, ymax = mort_pros_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
+  geom_errorbar(aes(ymin = mort_pros_can_cr_lci, ymax = mort_pros_can_cr_uci), width=0.3, colour=BRHD_cols[[9]], alpha=0.9, size=1.3) +
   labs(title = "Prostate Cancer Mortality Rates by Race/Ethinicity", x="Race/Ethnicity", y="Mortality Rate (per 100,000)") +
   theme_classic() +
   scale_fill_manual(labels = c("Black or African American only, non-Hispanic","American Indian or Alaska Native only, non-Hispanic","Asian only, non-Hispanic","Hispanic/Latino","Native Hawaiian or Other Pacific Islander only, non-Hispanic","Two or More Races only, non-Hispanic","Unknown","White only, non-Hispanic"), values = c(BRHD_cols[[5]],BRHD_cols[[6]],BRHD_cols[[1]],BRHD_cols[[7]],BRHD_cols[[3]],BRHD_cols[[2]],BRHD_cols[[4]],BRHD_cols[[8]])) +
@@ -2548,7 +2548,6 @@ hlth_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Percent 
                                                              'Percent of Adults who Received a Routine Dental Check-Up in the Last 12 months by Poverty',
                                                              'Percent of Women 40+ Who Had a Mammogram in the Previous Two Years by Poverty',
                                                              'Percent of Adults 50+ who were up-to-date with Colorectal Cancer Screening by Poverty',
-                                                             'Percent of Births Where the Mother Received First Trimester Prenatal Care by Poverty',
                                                              'Percent of Adults Receiving Flu Vaccination in Last 12 Months by Poverty'),
                         `Below` = c(paste(first(hlth_pov$hlcov_cr),'%', sep = ''),
                                          paste(first(hlth_pov$no_care_cr),'%', sep = ''),
@@ -2557,7 +2556,6 @@ hlth_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Percent 
                                          paste(first(hlth_pov$dent_check_cr),'%', sep = ''),
                                          paste(first(hlth_pov$mammo_cr),'%', sep = ''),
                                          paste(first(hlth_pov$col_scree_cr),'%', sep = ''),
-                                         paste(first(hlth_pov$pn_perc),'%', sep = ''),
                                          paste(first(hlth_pov$fluvac_cr),'%', sep = '')),
                         `Above` = c(paste(last(hlth_pov$hlcov_cr),'%', sep = ''),
                                         paste(last(hlth_pov$no_care_cr),'%', sep = ''),
@@ -2566,7 +2564,6 @@ hlth_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Percent 
                                         paste(last(hlth_pov$dent_check_cr),'%', sep = ''),
                                         paste(last(hlth_pov$mammo_cr),'%', sep = ''),
                                         paste(last(hlth_pov$col_scree_cr),'%', sep = ''),
-                                        paste(last(hlth_pov$pn_perc),'%', sep = ''),
                                         paste(last(hlth_pov$fluvac_cr),'%', sep = '')))
 
 #Creates the drop down menu that shows the graph
@@ -2586,10 +2583,8 @@ hlth_react_pov <- reactable(hlth_table_pov, resizable = TRUE, showPageSizeOption
                           } else if (index == 6) {
                             htmltools::div(style = "padding: 25px", ggplotly(mammo_pov))
                           } else if (index == 7) {
-                            htmltools::div(style = "padding: 25px", ggplotly(col_scree_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(col_scree_pov)) 
                           } else if (index == 8) {
-                            htmltools::div(style = "padding: 25px", ggplotly(pn_perc_pov))
-                          } else if (index == 9) {
                             htmltools::div(style = "padding: 25px", ggplotly(fluvac_pov))
                           }
                         })
@@ -2601,7 +2596,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                              'Percent of Adults who Received a Routine Dental Check-Up in the Last 12 months by Race/Ethnicity',
                                                              'Percent of Women 40+ Who Had a Mammogram in the Previous Two Years by Race/Ethnicity',
                                                              'Percent of Adults 50+ who were up-to-date with Colorectal Cancer Screening by Race/Ethnicity',
-                                                             'Percent of Births Where the Mother Received First Trimester Prenatal Care by Race/Ethnicity',
                                                              'Percent of Adults Receiving Flu Vaccination in Last 12 Months by Race/Ethnicity'),
                              `American Indian` = c(paste(hlth_race[1, 6],'%', sep = ''),
                                                    paste(hlth_race[1, 12],'%', sep = ''),
@@ -2610,7 +2604,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[1, 30],'%', sep = ''),
                                                    paste(hlth_race[1, 36],'%', sep = ''),
                                                    paste(hlth_race[1, 42],'%', sep = ''),
-                                                   paste(hlth_race[1, 45],'%', sep = ''),
                                                    paste(hlth_race[1, 51],'%', sep = '')),
                              `Asian` = c(paste(hlth_race[2, 6],'%', sep = ''),
                                                    paste(hlth_race[2, 12],'%', sep = ''),
@@ -2619,7 +2612,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[2, 30],'%', sep = ''),
                                                    paste(hlth_race[2, 36],'%', sep = ''),
                                                    paste(hlth_race[2, 42],'%', sep = ''),
-                                                   paste(hlth_race[2, 45],'%', sep = ''),
                                                    paste(hlth_race[2, 51],'%', sep = '')),
                              `Black` = c(paste(hlth_race[3, 6],'%', sep = ''),
                                                    paste(hlth_race[3, 12],'%', sep = ''),
@@ -2628,7 +2620,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[3, 30],'%', sep = ''),
                                                    paste(hlth_race[3, 36],'%', sep = ''),
                                                    paste(hlth_race[3, 42],'%', sep = ''),
-                                                   paste(hlth_race[3, 45],'%', sep = ''),
                                                    paste(hlth_race[3, 51],'%', sep = '')),
                              `Hispanic` = c(paste(hlth_race[4, 6],'%', sep = ''),
                                                    paste(hlth_race[4, 12],'%', sep = ''),
@@ -2637,7 +2628,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[4, 30],'%', sep = ''),
                                                    paste(hlth_race[4, 36],'%', sep = ''),
                                                    paste(hlth_race[4, 42],'%', sep = ''),
-                                                   paste(hlth_race[4, 45],'%', sep = ''),
                                                    paste(hlth_race[4, 51],'%', sep = '')),
                              `Pacific Islander` = c(paste(hlth_race[5, 6],'%', sep = ''),
                                                    paste(hlth_race[5, 12],'%', sep = ''),
@@ -2646,7 +2636,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[5, 30],'%', sep = ''),
                                                    paste(hlth_race[5, 36],'%', sep = ''),
                                                    paste(hlth_race[5, 42],'%', sep = ''),
-                                                   paste(hlth_race[5, 45],'%', sep = ''),
                                                    paste(hlth_race[5, 51],'%', sep = '')),
                              `Two or More` = c(paste(hlth_race[6, 6],'%', sep = ''),
                                                    paste(hlth_race[6, 12],'%', sep = ''),
@@ -2655,7 +2644,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[6, 30],'%', sep = ''),
                                                    paste(hlth_race[6, 36],'%', sep = ''),
                                                    paste(hlth_race[6, 42],'%', sep = ''),
-                                                   paste(hlth_race[6, 45],'%', sep = ''),
                                                    paste(hlth_race[6, 51],'%', sep = '')),
                              `White` = c(paste(hlth_race[7, 6],'%', sep = ''),
                                                    paste(hlth_race[7, 12],'%', sep = ''),
@@ -2664,7 +2652,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[7, 30],'%', sep = ''),
                                                    paste(hlth_race[7, 36],'%', sep = ''),
                                                    paste(hlth_race[7, 42],'%', sep = ''),
-                                                   paste(hlth_race[7, 45],'%', sep = ''),
                                                    paste(hlth_race[7, 51],'%', sep = '')),
                              `Unknown` = c(paste(hlth_race[8, 6],'%', sep = ''),
                                                    paste(hlth_race[8, 12],'%', sep = ''),
@@ -2673,7 +2660,6 @@ hlth_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                    paste(hlth_race[8, 30],'%', sep = ''),
                                                    paste(hlth_race[8, 36],'%', sep = ''),
                                                    paste(hlth_race[8, 42],'%', sep = ''),
-                                                   paste(hlth_race[8, 45],'%', sep = ''),
                                                    paste(hlth_race[8, 51],'%', sep = '')))
                              
                       
@@ -2695,10 +2681,8 @@ hlth_react_race <- reactable(hlth_table_race, resizable = TRUE, showPageSizeOpti
                               } else if (index == 6) {
                                 htmltools::div(style = "padding: 25px", ggplotly(mammo_race))
                               } else if (index == 7) {
-                                htmltools::div(style = "padding: 25px", ggplotly(col_scree_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(col_scree_race)) 
                               } else if (index == 8) {
-                                htmltools::div(style = "padding: 25px", ggplotly(pn_perc_race))
-                              } else if (index == 9) {
                                 htmltools::div(style = "padding: 25px", ggplotly(fluvac_race))
                               }
                             })
@@ -2844,25 +2828,25 @@ risk_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Rate of 
 
 
 #Creates the drop down menu that shows the graph
-risk_react_pov <- reactable(risk_table, resizable = TRUE, showPageSizeOptions = TRUE,
+risk_react_pov <- reactable(risk_table_pov, resizable = TRUE, showPageSizeOptions = TRUE,
                         onClick = 'expand', highlight = TRUE, rowStyle = list(cursor = 'pointer'),
                         details = function(index) {
                           if (index == 1) {
                             htmltools::div(style = "padding: 25px", ggplotly(adol_brths_pov))
                           } else if (index == 2) {
-                            htmltools::div(style = "padding: 25px", ggplotly(fruit_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(fruit_pov))
                           } else if (index == 3) {
-                            htmltools::div(style = "padding: 25px", ggplotly(veg_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(veg_pov))
                           } else if (index == 4) {
-                            htmltools::div(style = "padding: 25px", ggplotly(phy_act_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(phy_act_pov))
                           } else if (index == 5) {
-                            htmltools::div(style = "padding: 25px", ggplotly(cig_smkng_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(cig_smkng_pov))
                           } else if (index == 6) {
-                            htmltools::div(style = "padding: 25px", ggplotly(ecig_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(ecig_pov))
                           } else if (index == 7) {
-                            htmltools::div(style = "padding: 25px", ggplotly(bnge_drnkng_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(bnge_drnkng_pov))
                           } else if (index == 8) {
-                            htmltools::div(style = "padding: 25px", ggplotly(st_blt_cr_pov))
+                            htmltools::div(style = "padding: 25px", ggplotly(st_blt_pov))
                           }  
                         })
 #Race
@@ -2874,98 +2858,90 @@ risk_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('
                                                                                'Percent of Percent of Adults Currently Using E-cigarettes by Race/Ethnicity',
                                                                                'Percent of Adults Currently at Risk for Binge Drinking by Race/Ethnicity',
                                                                                'Percent of Adults Who Always or Nearly Always Wear a Seat Belt by Race/Ethnicity'),
-                             `American Indian` = c(paste(risk_race[1, 6],'%', sep = ''),
-                                                   paste(risk_race[1, 12],'%', sep = ''),
-                                                   paste(risk_race[1, 18],'%', sep = ''),
-                                                   paste(risk_race[1, 24],'%', sep = ''),
-                                                   paste(risk_race[1, 30],'%', sep = ''),
-                                                   paste(risk_race[1, 36],'%', sep = ''),
-                                                   paste(risk_race[1, 42],'%', sep = ''),
-                                                   paste(risk_race[1, 45],'%', sep = ''),
-                                                   paste(risk_race[1, 51],'%', sep = '')),
-                             `Asian` = c(paste(risk_race[2, 6],'%', sep = ''),
-                                         paste(risk_race[2, 12],'%', sep = ''),
-                                         paste(risk_race[2, 18],'%', sep = ''),
-                                         paste(risk_race[2, 24],'%', sep = ''),
-                                         paste(risk_race[2, 30],'%', sep = ''),
-                                         paste(risk_race[2, 36],'%', sep = ''),
-                                         paste(risk_race[2, 42],'%', sep = ''),
-                                         paste(risk_race[2, 45],'%', sep = ''),
-                                         paste(risk_race[2, 51],'%', sep = '')),
-                             `Black` = c(paste(risk_race[3, 6],'%', sep = ''),
-                                         paste(risk_race[3, 12],'%', sep = ''),
-                                         paste(risk_race[3, 18],'%', sep = ''),
-                                         paste(risk_race[3, 24],'%', sep = ''),
-                                         paste(risk_race[3, 30],'%', sep = ''),
-                                         paste(risk_race[3, 36],'%', sep = ''),
-                                         paste(risk_race[3, 42],'%', sep = ''),
-                                         paste(risk_race[3, 45],'%', sep = ''),
-                                         paste(risk_race[3, 51],'%', sep = '')),
-                             `Hispanic` = c(paste(risk_race[4, 6],'%', sep = ''),
-                                            paste(risk_race[4, 12],'%', sep = ''),
-                                            paste(risk_race[4, 18],'%', sep = ''),
-                                            paste(risk_race[4, 24],'%', sep = ''),
-                                            paste(risk_race[4, 30],'%', sep = ''),
-                                            paste(risk_race[4, 36],'%', sep = ''),
-                                            paste(risk_race[4, 42],'%', sep = ''),
-                                            paste(risk_race[4, 45],'%', sep = ''),
-                                            paste(risk_race[4, 51],'%', sep = '')),
-                             `Pacific Islander` = c(paste(risk_race[5, 6],'%', sep = ''),
-                                                    paste(risk_race[5, 12],'%', sep = ''),
-                                                    paste(risk_race[5, 18],'%', sep = ''),
-                                                    paste(risk_race[5, 24],'%', sep = ''),
-                                                    paste(risk_race[5, 30],'%', sep = ''),
-                                                    paste(risk_race[5, 36],'%', sep = ''),
-                                                    paste(risk_race[5, 42],'%', sep = ''),
-                                                    paste(risk_race[5, 45],'%', sep = ''),
-                                                    paste(risk_race[5, 51],'%', sep = '')),
-                             `Two or More` = c(paste(risk_race[6, 6],'%', sep = ''),
-                                               paste(risk_race[6, 12],'%', sep = ''),
-                                               paste(risk_race[6, 18],'%', sep = ''),
-                                               paste(risk_race[6, 24],'%', sep = ''),
-                                               paste(risk_race[6, 30],'%', sep = ''),
-                                               paste(risk_race[6, 36],'%', sep = ''),
-                                               paste(risk_race[6, 42],'%', sep = ''),
-                                               paste(risk_race[6, 45],'%', sep = ''),
-                                               paste(risk_race[6, 51],'%', sep = '')),
-                             `White` = c(paste(risk_race[7, 6],'%', sep = ''),
-                                         paste(risk_race[7, 12],'%', sep = ''),
-                                         paste(risk_race[7, 18],'%', sep = ''),
-                                         paste(risk_race[7, 24],'%', sep = ''),
-                                         paste(risk_race[7, 30],'%', sep = ''),
-                                         paste(risk_race[7, 36],'%', sep = ''),
-                                         paste(risk_race[7, 42],'%', sep = ''),
-                                         paste(risk_race[7, 45],'%', sep = ''),
-                                         paste(risk_race[7, 51],'%', sep = '')),
-                             `Unknown` = c(paste(risk_race[8, 6],'%', sep = ''),
-                                           paste(risk_race[8, 12],'%', sep = ''),
-                                           paste(risk_race[8, 18],'%', sep = ''),
-                                           paste(risk_race[8, 24],'%', sep = ''),
-                                           paste(risk_race[8, 30],'%', sep = ''),
-                                           paste(risk_race[8, 36],'%', sep = ''),
-                                           paste(risk_race[8, 42],'%', sep = ''),
-                                           paste(risk_race[8, 45],'%', sep = ''),
-                                           paste(risk_race[8, 51],'%', sep = '')))
+                             `American Indian` = c(paste(risk_race[1, 4]),
+                                                   paste(risk_race[1, 9],'%', sep = ''),
+                                                   paste(risk_race[1, 15],'%', sep = ''),
+                                                   paste(risk_race[1, 21],'%', sep = ''),
+                                                   paste(risk_race[1, 27],'%', sep = ''),
+                                                   paste(risk_race[1, 33],'%', sep = ''),
+                                                   paste(risk_race[1, 39],'%', sep = ''),
+                                                   paste(risk_race[1, 45],'%', sep = '')),
+                             `Asian` = c(paste(risk_race[2, 4]),
+                                         paste(risk_race[2, 9],'%', sep = ''),
+                                         paste(risk_race[2, 15],'%', sep = ''),
+                                         paste(risk_race[2, 21],'%', sep = ''),
+                                         paste(risk_race[2, 27],'%', sep = ''),
+                                         paste(risk_race[2, 33],'%', sep = ''),
+                                         paste(risk_race[2, 39],'%', sep = ''),
+                                         paste(risk_race[2, 45],'%', sep = '')),
+                             `Black` = c(paste(risk_race[3, 4]),
+                                         paste(risk_race[3, 9],'%', sep = ''),
+                                         paste(risk_race[3, 15],'%', sep = ''),
+                                         paste(risk_race[3, 21],'%', sep = ''),
+                                         paste(risk_race[3, 27],'%', sep = ''),
+                                         paste(risk_race[3, 33],'%', sep = ''),
+                                         paste(risk_race[3, 39],'%', sep = ''),
+                                         paste(risk_race[3, 45],'%', sep = '')),
+                             `Hispanic` = c(paste(risk_race[4, 4]),
+                                            paste(risk_race[4, 9],'%', sep = ''),
+                                            paste(risk_race[4, 15],'%', sep = ''),
+                                            paste(risk_race[4, 21],'%', sep = ''),
+                                            paste(risk_race[4, 27],'%', sep = ''),
+                                            paste(risk_race[4, 33],'%', sep = ''),
+                                            paste(risk_race[4, 39],'%', sep = ''),
+                                            paste(risk_race[4, 45],'%', sep = '')),
+                             `Pacific Islander` = c(paste(risk_race[5, 4]),
+                                                    paste(risk_race[5, 9],'%', sep = ''),
+                                                    paste(risk_race[5, 15],'%', sep = ''),
+                                                    paste(risk_race[5, 21],'%', sep = ''),
+                                                    paste(risk_race[5, 27],'%', sep = ''),
+                                                    paste(risk_race[5, 33],'%', sep = ''),
+                                                    paste(risk_race[5, 39],'%', sep = ''),
+                                                    paste(risk_race[5, 45],'%', sep = '')),
+                             `Two or More` = c(paste(risk_race[6, 4]),
+                                               paste(risk_race[6, 9],'%', sep = ''),
+                                               paste(risk_race[6, 15],'%', sep = ''),
+                                               paste(risk_race[6, 21],'%', sep = ''),
+                                               paste(risk_race[6, 27],'%', sep = ''),
+                                               paste(risk_race[6, 33],'%', sep = ''),
+                                               paste(risk_race[6, 39],'%', sep = ''),
+                                               paste(risk_race[6, 45],'%', sep = '')),
+                             `White` = c(paste(risk_race[7, 4]),
+                                         paste(risk_race[7, 9],'%', sep = ''),
+                                         paste(risk_race[7, 15],'%', sep = ''),
+                                         paste(risk_race[7, 21],'%', sep = ''),
+                                         paste(risk_race[7, 27],'%', sep = ''),
+                                         paste(risk_race[7, 33],'%', sep = ''),
+                                         paste(risk_race[7, 39],'%', sep = ''),
+                                         paste(risk_race[7, 45],'%', sep = '')),
+                             `Unknown` = c(paste(risk_race[8, 4]),
+                                           paste(risk_race[8, 9],'%', sep = ''),
+                                           paste(risk_race[8, 15],'%', sep = ''),
+                                           paste(risk_race[8, 21],'%', sep = ''),
+                                           paste(risk_race[8, 27],'%', sep = ''),
+                                           paste(risk_race[8, 33],'%', sep = ''),
+                                           paste(risk_race[8, 39],'%', sep = ''),
+                                           paste(risk_race[8, 45],'%', sep = '')))
 
-risk_react_race <- reactable(risk_table, resizable = TRUE, showPageSizeOptions = TRUE,
+risk_react_race <- reactable(risk_table_race, resizable = TRUE, showPageSizeOptions = TRUE,
                             onClick = 'expand', highlight = TRUE, rowStyle = list(cursor = 'pointer'),
                             details = function(index) {
                               if (index == 1) {
                                 htmltools::div(style = "padding: 25px", ggplotly(adol_brths_race))
                               } else if (index == 2) {
-                                htmltools::div(style = "padding: 25px", ggplotly(fruit_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(fruit_race))
                               } else if (index == 3) {
-                                htmltools::div(style = "padding: 25px", ggplotly(veg_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(veg_race))
                               } else if (index == 4) {
-                                htmltools::div(style = "padding: 25px", ggplotly(phy_act_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(phy_act_race))
                               } else if (index == 5) {
-                                htmltools::div(style = "padding: 25px", ggplotly(cig_smkng_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(cig_smkng_race))
                               } else if (index == 6) {
-                                htmltools::div(style = "padding: 25px", ggplotly(ecig_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(ecig_race))
                               } else if (index == 7) {
-                                htmltools::div(style = "padding: 25px", ggplotly(bnge_drnkng_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(bnge_drnkng_race))
                               } else if (index == 8) {
-                                htmltools::div(style = "padding: 25px", ggplotly(st_blt_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(st_blt_race))
                               }  
                             })
 
@@ -3246,25 +3222,7 @@ outcomes_react_aa <- reactable(outcomes_table_aa, resizable = TRUE, showPageSize
                                  }
                                })
 #Poverty
-outcomes_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Infant Mortality Rate per 1,000 births',
-                                                                           'Unintentional Injury Mortality Rates by County',
-                                                                           'Motor Vehicle Mortality Rates by County',
-                                                                           'Drug Poisoning Mortality Rates by County',
-                                                                           'Falls Mortality Rates by County',
-                                                                           'Suicide Mortality Rates by County',
-                                                                           'Diabetes Mortality Rates by County',
-                                                                           'Cerebrovascular Mortality Rates by County',
-                                                                           'Cancer Mortality Rates by County',
-                                                                           'Lung Cancer Mortality Rates by County',
-                                                                           'Breast Cancer Mortality Rates by County',
-                                                                           'Colorectal Cancer Mortality Rates by County',
-                                                                           'Prostate Cancer Mortality Rates by County',
-                                                                           'Skin Cancer Mortality Rates by County',
-                                                                           'Alzheimers Mortality Rates by County',
-                                                                           'Heart Disease Mortality Rates by County',
-                                                                           'Percent of Infants with Low Birth Weight',
-                                                                           'Percent of Infants Born Preterm',
-                                                                           'Percent of Adults Who have Experienced Rape/Attempted Rape',
+outcomes_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Percent of Adults Who have Experienced Rape/Attempted Rape',
                                                                            'Percent of Adults Who had <7 days of Poor Physical Health in the Last 30 Days',
                                                                            'Percent of Adults Who had <7 days of Poor Mental Health in the Last 30 Days',
                                                                            'Percent of Adults Who have Diagnosed Arthritis',
@@ -3273,25 +3231,7 @@ outcomes_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Infa
                                                                            'Percent of Adults Who have been Told they have Pre-diabetes',
                                                                            'Percent of Adults Who have been Told they have Depressive Disorder',
                                                                            'Percent of Adults Who have been Told they have Depressive Disorder'),
-                            `Below` = c(paste(first(outcomes_pov$inf_mort_rate),'%', sep = ''),
-                                        paste(first(outcomes_pov$unint_inj_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mvc_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$drug_poi_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$falls_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$sui_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_diab_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_cvs_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_can_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_lung_can),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_brst_can_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_colrect_can_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_pros_can_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_skin_can_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_alz_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$mort_hd_cr),'%', sep = ''),
-                                        paste(first(outcomes_pov$lw_brth_inf),'%', sep = ''),
-                                        paste(first(outcomes_pov$preterm_births),'%', sep = ''),
-                                        paste(first(outcomes_pov$rape_cr),'%', sep = ''),
+                            `Below` = c(paste(first(outcomes_pov$rape_cr),'%', sep = ''),
                                         paste(first(outcomes_pov$phy_hlth_cr),'%', sep = ''),
                                         paste(first(outcomes_pov$ment_hlth_cr),'%', sep = ''),
                                         paste(first(outcomes_pov$arthrits_cr),'%', sep = ''),
@@ -3300,25 +3240,7 @@ outcomes_table_pov <- bind_cols(`Access to Care Indicators by Poverty` = c('Infa
                                         paste(first(outcomes_pov$prediabets_cr),'%', sep = ''),
                                         paste(first(outcomes_pov$dep_cr),'%', sep = ''),
                                         paste(first(outcomes_pov$hd_cr),'%', sep = '')),
-                            `Above` = c(paste(last(outcomes_pov$inf_mort_rate),'%', sep = ''),
-                                        paste(last(outcomes_pov$unint_inj_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mvc_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$drug_poi_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$falls_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$sui_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_diab_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_cvs_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_can_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_lung_can),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_brst_can_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_colrect_can_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_pros_can_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_skin_can_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_alz_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$mort_hd_cr),'%', sep = ''),
-                                        paste(last(outcomes_pov$lw_brth_inf),'%', sep = ''),
-                                        paste(last(outcomes_pov$preterm_births),'%', sep = ''),
-                                        paste(last(outcomes_pov$rape_cr),'%', sep = ''),
+                            `Above` = c(paste(last(outcomes_pov$rape_cr),'%', sep = ''),
                                         paste(last(outcomes_pov$phy_hlth_cr),'%', sep = ''),
                                         paste(last(outcomes_pov$ment_hlth_cr),'%', sep = ''),
                                         paste(last(outcomes_pov$arthrits_cr),'%', sep = ''),
@@ -3332,59 +3254,23 @@ outcomes_react_pov <- reactable(outcomes_table_pov, resizable = TRUE, showPageSi
                                  onClick = 'expand', highlight = TRUE, rowStyle = list(cursor = 'pointer'),
                                  details = function(index) {
                                    if (index == 1) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(inf_mort_rate_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(rape_pov))
                                    } else if (index == 2) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(unint_inj_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(phy_hlth_pov))
                                    } else if (index == 3) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mvc_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(ment_hlth_pov))
                                    } else if (index == 4) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(drug_poi_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(arthrits_pov))
                                    } else if (index == 5) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(falls_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(astma_pov))
                                    } else if (index == 6) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(sui_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(diab_pov))
                                    } else if (index == 7) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_diab_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(prediabets_pov))
                                    } else if (index == 8) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_cvs_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(dep_pov))
                                    } else if (index == 9) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_can_cr_pov))
-                                   } else if (index == 10) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_lung_can_pov))
-                                   } else if (index == 11) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_brst_can_cr_pov))
-                                   } else if (index == 12) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_colrect_can_cr_pov))
-                                   } else if (index == 13) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_pros_can_cr_pov))
-                                   } else if (index == 14) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_skin_can_cr_pov))
-                                   } else if (index == 15) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_alz_cr_pov))
-                                   } else if (index == 16) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(mort_hd_cr_pov))
-                                   } else if (index == 17) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(lw_brth_inf_pov))
-                                   } else if (index == 18) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(preterm_births_pov))
-                                   } else if (index == 19) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(rape_cr_pov))
-                                   } else if (index == 20) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(phy_hlth_cr_pov))
-                                   } else if (index == 21) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(ment_hlth_cr_pov))
-                                   } else if (index == 22) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(arthrits_cr_pov))
-                                   } else if (index == 23) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(astma_cr_pov))
-                                   } else if (index == 24) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(diab_cr_pov))
-                                   } else if (index == 25) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(prediabets_cr_pov))
-                                   } else if (index == 26) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(dep_cr_pov))
-                                   } else if (index == 27) {
-                                     htmltools::div(style = "padding: 25px", ggplotly(hd_cr_pov))
+                                     htmltools::div(style = "padding: 25px", ggplotly(hd_pov))
                                    }
                                    
                                  })
@@ -3414,12 +3300,13 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                                                                    'Percent of Adults Who have Diagnosed Arthritis by Race/Ethnicity',
                                                                                    'Percent of Adults Who Currently have Diagnosed Asthma by Race/Ethnicity',
                                                                                    'Percent of Adults Who have been Told they have Diabetes by Race/Ethnicity',
+                                                                                   'Percent of Adults Who have been Told they have Prediabetes by Race/Ethnicity',
                                                                                    'Percent of Adults Who have been Told they have Depressive Disorder by Race/Ethnicity',
                                                                                    'Percent of Adults Who have been Told they have Heart Disease by Race/Ethnicity'),
                              `AIAN` = c(paste(outcomes_race[1, 3],'%', sep = ''),
                                                    paste(outcomes_race[1, 9],'%', sep = ''),
                                                    paste(outcomes_race[1, 15],'%', sep = ''),
-                                                   paste(outcomes_race[1, 22],'%', sep = ''),
+                                                   paste(outcomes_race[1, 21],'%', sep = ''),
                                                    paste(outcomes_race[1, 27],'%', sep = ''),
                                                    paste(outcomes_race[1, 33],'%', sep = ''),
                                                    paste(outcomes_race[1, 39],'%', sep = ''),
@@ -3443,7 +3330,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                                    paste(outcomes_race[1, 141],'%', sep = ''),
                                                    paste(outcomes_race[1, 144],'%', sep = ''),
                                                    paste(outcomes_race[1, 150],'%', sep = '')),
-                             `Asian` = c(paste(outcomes_race[2, 3],'%', sep = ''),
+                             `Asian` = c(paste(outcomes_race[2, 3]),
                                          paste(outcomes_race[2, 9],'%', sep = ''),
                                          paste(outcomes_race[2, 15],'%', sep = ''),
                                          paste(outcomes_race[2, 22],'%', sep = ''),
@@ -3470,7 +3357,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                          paste(outcomes_race[2, 141],'%', sep = ''),
                                          paste(outcomes_race[2, 144],'%', sep = ''),
                                          paste(outcomes_race[2, 150],'%', sep = '')),
-                             `AAB` = c(paste(outcomes_race[3, 3],'%', sep = ''),
+                             `AAB` = c(paste(outcomes_race[3, 3]),
                                        paste(outcomes_race[3, 9],'%', sep = ''),
                                        paste(outcomes_race[3, 15],'%', sep = ''),
                                        paste(outcomes_race[3, 22],'%', sep = ''),
@@ -3497,7 +3384,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                        paste(outcomes_race[3, 141],'%', sep = ''),
                                        paste(outcomes_race[3, 144],'%', sep = ''),
                                        paste(outcomes_race[3, 150],'%', sep = '')),
-                             `HisLat` = c(paste(outcomes_race[4, 3],'%', sep = ''),
+                             `HisLat` = c(paste(outcomes_race[4, 3]),
                                           paste(outcomes_race[4, 9],'%', sep = ''),
                                           paste(outcomes_race[4, 15],'%', sep = ''),
                                           paste(outcomes_race[4, 22],'%', sep = ''),
@@ -3524,7 +3411,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                           paste(outcomes_race[4, 141],'%', sep = ''),
                                           paste(outcomes_race[4, 144],'%', sep = ''),
                                           paste(outcomes_race[4, 150],'%', sep = '')),
-                             `PINH` = c(paste(outcomes_race[5, 3],'%', sep = ''),
+                             `PINH` = c(paste(outcomes_race[5, 3]),
                                         paste(outcomes_race[5, 9],'%', sep = ''),
                                         paste(outcomes_race[5, 15],'%', sep = ''),
                                         paste(outcomes_race[5, 22],'%', sep = ''),
@@ -3551,7 +3438,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                         paste(outcomes_race[5, 141],'%', sep = ''),
                                         paste(outcomes_race[5, 144],'%', sep = ''),
                                         paste(outcomes_race[5, 150],'%', sep = '')),
-                             `Two` = c(paste(outcomes_race[6, 3],'%', sep = ''),
+                             `Two` = c(paste(outcomes_race[6, 3]),
                                        paste(outcomes_race[6, 9],'%', sep = ''),
                                        paste(outcomes_race[6, 15],'%', sep = ''),
                                        paste(outcomes_race[6, 22],'%', sep = ''),
@@ -3578,7 +3465,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                        paste(outcomes_race[6, 141],'%', sep = ''),
                                        paste(outcomes_race[6, 144],'%', sep = ''),
                                        paste(outcomes_race[6, 150],'%', sep = '')),
-                             `White` = c(paste(outcomes_race[7, 3],'%', sep = ''),
+                             `White` = c(paste(outcomes_race[7, 3]),
                                          paste(outcomes_race[7, 9],'%', sep = ''),
                                          paste(outcomes_race[7, 15],'%', sep = ''),
                                          paste(outcomes_race[7, 22],'%', sep = ''),
@@ -3605,7 +3492,7 @@ outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` =
                                          paste(outcomes_race[7, 141],'%', sep = ''),
                                          paste(outcomes_race[7, 144],'%', sep = ''),
                                          paste(outcomes_race[7, 150],'%', sep = '')),
-                             `Unknown` = c(paste(outcomes_race[8, 3],'%', sep = ''),
+                             `Unknown` = c(paste(outcomes_race[8, 3]),
                                            paste(outcomes_race[8, 9],'%', sep = ''),
                                            paste(outcomes_race[8, 15],'%', sep = ''),
                                            paste(outcomes_race[8, 22],'%', sep = ''),
@@ -3642,57 +3529,57 @@ outcomes_react_race <- reactable(outcomes_table_race, resizable = TRUE, showPage
                               if (index == 1) {
                                 htmltools::div(style = "padding: 25px", ggplotly(inf_mort_rate_race))
                               } else if (index == 2) {
-                                htmltools::div(style = "padding: 25px", ggplotly(unint_inj_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(unint_inj_race))
                               } else if (index == 3) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mvc_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mvc_race))
                               } else if (index == 4) {
-                                htmltools::div(style = "padding: 25px", ggplotly(drug_poi_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(drug_poi_race))
                               } else if (index == 5) {
-                                htmltools::div(style = "padding: 25px", ggplotly(falls_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(falls_race))
                               } else if (index == 6) {
-                                htmltools::div(style = "padding: 25px", ggplotly(sui_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(sui_race))
                               } else if (index == 7) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_diab_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_diab_race))
                               } else if (index == 8) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_cvs_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_cvs_race))
                               } else if (index == 9) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_can_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_can_race))
                               } else if (index == 10) {
                                 htmltools::div(style = "padding: 25px", ggplotly(mort_lung_can_race))
                               } else if (index == 11) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_brst_can_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_brst_can_race))
                               } else if (index == 12) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_colrect_can_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_colrect_can_race))
                               } else if (index == 13) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_pros_can_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_pros_can_race))
                               } else if (index == 14) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_skin_can_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_skin_can_race))
                               } else if (index == 15) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_alz_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_alz_race))
                               } else if (index == 16) {
-                                htmltools::div(style = "padding: 25px", ggplotly(mort_hd_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(mort_hd_race))
                               } else if (index == 17) {
                                 htmltools::div(style = "padding: 25px", ggplotly(lw_brth_inf_race))
                               } else if (index == 18) {
                                 htmltools::div(style = "padding: 25px", ggplotly(preterm_births_race))
                               } else if (index == 19) {
-                                htmltools::div(style = "padding: 25px", ggplotly(rape_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(rape_race))
                               } else if (index == 20) {
-                                htmltools::div(style = "padding: 25px", ggplotly(phy_hlth_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(phy_hlth_race))
                               } else if (index == 21) {
-                                htmltools::div(style = "padding: 25px", ggplotly(ment_hlth_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(ment_hlth_race))
                               } else if (index == 22) {
-                                htmltools::div(style = "padding: 25px", ggplotly(arthrits_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(arthrits_race))
                               } else if (index == 23) {
-                                htmltools::div(style = "padding: 25px", ggplotly(astma_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(astma_race))
                               } else if (index == 24) {
-                                htmltools::div(style = "padding: 25px", ggplotly(diab_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(diab_race))
                               } else if (index == 25) {
-                                htmltools::div(style = "padding: 25px", ggplotly(prediabets_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(prediabets_race))
                               } else if (index == 26) {
-                                htmltools::div(style = "padding: 25px", ggplotly(dep_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(dep_race))
                               } else if (index == 27) {
-                                htmltools::div(style = "padding: 25px", ggplotly(hd_cr_race))
+                                htmltools::div(style = "padding: 25px", ggplotly(hd_race))
                               }
                               
                             })
@@ -3721,8 +3608,8 @@ tmp.env$col_scree <- col_scree
 tmp.env$pn_perc <- pn_perc
 tmp.env$fluvac <- fluvac
 
-tmp.env$hlth_pov_table <- hlth_pov_table
-tmp.env$hlth_pov_react <- hlth_pov_react
+tmp.env$hlth_table_pov <- hlth_table_pov
+tmp.env$hlth_react_pov <- hlth_react_pov
 tmp.env$hlth_pov <- hlth_pov
 tmp.env$ins_pov <- ins_pov
 tmp.env$no_care_pov <- no_care_pov
@@ -3772,25 +3659,25 @@ tmp.env$risk_table_pov <- risk_table_pov
 tmp.env$risk_react_pov <- risk_react_pov
 tmp.env$risk_wide_pov <- risk_wide_pov
 tmp.env$adol_brths_pov <- adol_brths_pov
-tmp.env$fruit_cr_pov <- fruit_cr_pov
-tmp.env$veg_cr_pov <- veg_cr_pov
-tmp.env$phy_act_cr_pov <- phy_act_cr_pov
-tmp.env$cig_smkng_cr_pov <- cig_smkng_cr_pov
-tmp.env$ecig_cr_pov <- ecig_cr_pov
-tmp.env$bnge_drnkng_cr_pov <- bnge_drnkng_cr_pov
-tmp.env$st_blt_cr_pov <- st_blt_cr_pov
+tmp.env$fruit_pov <- fruit_pov
+tmp.env$veg_pov <- veg_pov
+tmp.env$phy_act_pov <- phy_act_pov
+tmp.env$cig_smkng_pov <- cig_smkng_pov
+tmp.env$ecig_pov <- ecig_pov
+tmp.env$bnge_drnkng_pov <- bnge_drnkng_pov
+tmp.env$st_blt_pov <- st_blt_pov
 
 tmp.env$risk_table_race <- risk_table_race
 tmp.env$risk_react_race <- risk_react_race
 tmp.env$risk_wide_race <- risk_wide_race
 tmp.env$adol_brths_race <- adol_brths_race
-tmp.env$fruit_cr_race <- fruit_cr_race
-tmp.env$veg_cr_race <- veg_cr_race
-tmp.env$phy_act_cr_race <- phy_act_cr_race
-tmp.env$cig_smkng_cr_race <- cig_smkng_cr_race
-tmp.env$ecig_cr_race <- ecig_cr_race
-tmp.env$bnge_drnkng_cr_race <- bnge_drnkng_cr_race
-tmp.env$st_blt_cr_race <- st_blt_cr_race
+tmp.env$fruit_race <- fruit_race
+tmp.env$veg_race <- veg_race
+tmp.env$phy_act_race <- phy_act_race
+tmp.env$cig_smkng_race <- cig_smkng_race
+tmp.env$ecig_race <- ecig_race
+tmp.env$bnge_drnkng_race <- bnge_drnkng_race
+tmp.env$st_blt_race <- st_blt_race
 
 tmp.env$outcomes_react <- outcomes_react
 tmp.env$outcomes_wide <- outcomes_wide
@@ -3845,63 +3732,63 @@ tmp.env$outcomes_react_pov <- outcomes_react_pov
 tmp.env$outcomes_wide_pov <- outcomes_wide_pov
 tmp.env$outcomes_table_pov <- outcomes_table_pov
 tmp.env$inf_mort_rate_pov <- inf_mort_rate_pov
-tmp.env$unint_inj_cr_pov <- unint_inj_cr_pov
-tmp.env$mvc_cr_pov <- mvc_cr_pov
-tmp.env$drug_poi_cr_pov <- drug_poi_cr_pov
-tmp.env$falls_cr_pov <- falls_cr_pov
-tmp.env$sui_cr_pov <- sui_cr_pov
-tmp.env$mort_diab_cr_pov <- mort_diab_cr_pov
-tmp.env$mort_cvs_cr_pov <- mort_cvs_cr_pov
-tmp.env$mort_can_cr_pov <- mort_can_cr_pov
+tmp.env$unint_inj_pov <- unint_inj_pov
+tmp.env$mvc_pov <- mvc_pov
+tmp.env$drug_poi_pov <- drug_poi_pov
+tmp.env$falls_pov <- falls_pov
+tmp.env$sui_pov <- sui_pov
+tmp.env$mort_diab_pov <- mort_diab_pov
+tmp.env$mort_cvs_pov <- mort_cvs_pov
+tmp.env$mort_can_pov <- mort_can_pov
 tmp.env$mort_lung_can_pov <- mort_lung_can_pov
-tmp.env$mort_brst_can_cr_pov <- mort_brst_can_cr_pov
-tmp.env$mort_colrect_can_cr_pov <- mort_colrect_can_cr_pov
-tmp.env$mort_pros_can_cr_pov <- mort_pros_can_cr_pov
-tmp.env$mort_skin_can_cr_pov <- mort_skin_can_cr_pov
-tmp.env$mort_alz_cr_pov <- mort_alz_cr_pov
-tmp.env$mort_hd_cr_pov <- mort_hd_cr_pov
+tmp.env$mort_brst_can_pov <- mort_brst_can_pov
+tmp.env$mort_colrect_can_pov <- mort_colrect_can_pov
+tmp.env$mort_pros_can_pov <- mort_pros_can_pov
+tmp.env$mort_skin_can_pov <- mort_skin_can_pov
+tmp.env$mort_alz_pov <- mort_alz_pov
+tmp.env$mort_hd_pov <- mort_hd_pov
 tmp.env$lw_brth_inf_pov <- lw_brth_inf_pov
 tmp.env$preterm_births_pov <- preterm_births_pov
-tmp.env$rape_cr_pov <- rape_cr_pov
-tmp.env$phy_hlth_cr_pov <- phy_hlth_cr_pov
-tmp.env$ment_hlth_cr_pov <- ment_hlth_cr_pov
-tmp.env$arthrits_cr_pov <- arthrits_cr_pov
-tmp.env$astma_cr_pov <- astma_cr_pov 
-tmp.env$diab_cr_pov <- diab_cr_pov
-tmp.env$prediabets_cr_pov <- prediabets_cr_pov
-tmp.env$dep_cr_pov <- dep_cr_pov
-tmp.env$hd_cr_pov <- hd_cr_pov
+tmp.env$rape_pov <- rape_pov
+tmp.env$phy_hlth_pov <- phy_hlth_pov
+tmp.env$ment_hlth_pov <- ment_hlth_pov
+tmp.env$arthrits_pov <- arthrits_pov
+tmp.env$astma_pov <- astma_pov 
+tmp.env$diab_pov <- diab_pov
+tmp.env$prediabets_pov <- prediabets_pov
+tmp.env$dep_pov <- dep_pov
+tmp.env$hd_pov <- hd_pov
 
 tmp.env$outcomes_react_race <- outcomes_react_race
 tmp.env$outcomes_wide_race <- outcomes_wide_race
 tmp.env$outcomes_table_race <- outcomes_table_race
 tmp.env$inf_mort_rate_race <- inf_mort_rate_race
-tmp.env$unint_inj_cr_race <- unint_inj_cr_race
-tmp.env$mvc_cr_race <- mvc_cr_race
-tmp.env$drug_poi_cr_race <- drug_poi_cr_race
-tmp.env$falls_cr_race <- falls_cr_race
-tmp.env$sui_cr_race <- sui_cr_race
-tmp.env$mort_diab_cr_race <- mort_diab_cr_race
-tmp.env$mort_cvs_cr_race <- mort_cvs_cr_race
-tmp.env$mort_can_cr_race <- mort_can_cr_race
+tmp.env$unint_inj_race <- unint_inj_race
+tmp.env$mvc_race <- mvc_race
+tmp.env$drug_poi_race <- drug_poi_race
+tmp.env$falls_race <- falls_race
+tmp.env$sui_race <- sui_race
+tmp.env$mort_diab_race <- mort_diab_race
+tmp.env$mort_cvs_race <- mort_cvs_race
+tmp.env$mort_can_race <- mort_can_race
 tmp.env$mort_lung_can_race <- mort_lung_can_race
-tmp.env$mort_brst_can_cr_race <- mort_brst_can_cr_race
-tmp.env$mort_colrect_can_cr_race <- mort_colrect_can_cr_race
-tmp.env$mort_pros_can_cr_race <- mort_pros_can_cr_race
-tmp.env$mort_skin_can_cr_race <- mort_skin_can_cr_race
-tmp.env$mort_alz_cr_race <- mort_alz_cr_race
-tmp.env$mort_hd_cr_race <- mort_hd_cr_race
+tmp.env$mort_brst_can_race <- mort_brst_can_race
+tmp.env$mort_colrect_can_race <- mort_colrect_can_race
+tmp.env$mort_pros_can_race <- mort_pros_can_race
+tmp.env$mort_skin_can_race <- mort_skin_can_race
+tmp.env$mort_alz_race <- mort_alz_race
+tmp.env$mort_hd_race <- mort_hd_race
 tmp.env$lw_brth_inf_race <- lw_brth_inf_race
 tmp.env$preterm_births_race <- preterm_births_race
-tmp.env$rape_cr_race <- rape_cr_race
-tmp.env$phy_hlth_cr_race <- phy_hlth_cr_race
-tmp.env$ment_hlth_cr_race <- ment_hlth_cr_race
-tmp.env$arthrits_cr_race <- arthrits_cr_race
-tmp.env$astma_cr_race <- astma_cr_race 
-tmp.env$diab_cr_race <- diab_cr_race
-tmp.env$prediabets_cr_race <- prediabets_cr_race
-tmp.env$dep_cr_race <- dep_cr_race
-tmp.env$hd_cr_race <- hd_cr_race
+tmp.env$rape_race <- rape_race
+tmp.env$phy_hlth_race <- phy_hlth_race
+tmp.env$ment_hlth_race <- ment_hlth_race
+tmp.env$arthrits_race <- arthrits_race
+tmp.env$astma_race <- astma_race 
+tmp.env$diab_race <- diab_race
+tmp.env$prediabets_race <- prediabets_race
+tmp.env$dep_race <- dep_race
+tmp.env$hd_race <- hd_race
 
 save(list = ls(all.names = TRUE, pos = tmp.env), envir = tmp.env,
      file = paste0("dashdata",
