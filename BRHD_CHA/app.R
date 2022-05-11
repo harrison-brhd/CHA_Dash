@@ -56,7 +56,10 @@ dem_react <- reactable(dem_table, resizable = TRUE, showPageSizeOptions = TRUE,
                            htmltools::div(style = "padding: 25px", life_expect)
                          }
                        })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 744142d7ce8f7221a874cedf5fddf481b03f2d31
 #Hlth Reactable-Creates a table
 hlth_table <- bind_cols(`2020 Access to Care Indicators` = c('Percent of Adults with Health Insurance',
                                                              'Percent of Adults Unable to Afford Needed Care',
@@ -825,6 +828,10 @@ outcomes_table <- bind_cols(`2020 Outcomes` = c('Infant Mortality Rate per 1,000
                                         paste(tail(outcomes_wide$ca_prediabets_cr[!is.na(outcomes_wide$ca_prediabets_cr)],1),'%', sep = ''),
                                         paste(tail(outcomes_wide$ca_dep_cr[!is.na(outcomes_wide$ca_dep_cr)],1),'%', sep = ''),
                                         paste(tail(outcomes_wide$ca_hd_cr[!is.na(outcomes_wide$ca_hd_cr)],1),'%', sep = '')))
+<<<<<<< HEAD
+=======
+
+>>>>>>> 744142d7ce8f7221a874cedf5fddf481b03f2d31
 #Creates the drop down menu that shows the graph
 outcomes_react <- reactable(outcomes_table, resizable = TRUE, showPageSizeOptions = TRUE,
                             onClick = 'expand', highlight = TRUE, rowStyle = list(cursor = 'pointer'),
@@ -1008,7 +1015,11 @@ outcomes_react_aa <- reactable(outcomes_table_aa, resizable = TRUE, showPageSize
                                  } else if (index == 20) {
                                    htmltools::div(style = "padding: 25px", aa_mort_alz)
                                  } else if (index == 20) {
+<<<<<<< HEAD
                                    htmltools::div(style = "padding: 25px", aa_mort_hd)
+=======
+                                   htmltools::div(style = "padding: 25px", aa_prediabets)
+>>>>>>> 744142d7ce8f7221a874cedf5fddf481b03f2d31
                                  } else if (index == 14) {
                                    htmltools::div(style = "padding: 25px", aa_rape)
                                  } else if (index == 15) {
@@ -1084,6 +1095,10 @@ outcomes_react_pov <- reactable(outcomes_table_pov, resizable = TRUE, showPageSi
                                 })
 
 #Race
+<<<<<<< HEAD
+=======
+#Race
+>>>>>>> 744142d7ce8f7221a874cedf5fddf481b03f2d31
 outcomes_table_race <- bind_cols(`Access to Care Indicators by Race/Ethnicity` = c('Infant Mortality Rate per 1,000 births',
                                                                                    'Unintentional Injury Mortality Rates by Race/Ethnicity',
                                                                                    'Motor Vehicle Mortality Rates by Race/Ethnicity',
@@ -1400,6 +1415,7 @@ outcomes_react_race <- reactable(outcomes_table_race, resizable = TRUE, showPage
 #class = 'name')
 
 ui <- dashboardPage(
+<<<<<<< HEAD
   dashboardHeader(title = 'Healthier BRHD'),
   ## Sidebar content
   dashboardSidebar(
@@ -1409,6 +1425,76 @@ ui <- dashboardPage(
       menuItem("Healthcare", tabName = "Healthcare", icon = icon("notes-medical")),
       menuItem("Risk Factors", tabName = "riskfactors", icon = icon("heartbeat")),
       menuItem("Outcomes", tabName = "Outcomes", icon = icon("universal-access"))
+=======
+    dashboardHeader(title = 'Healthier BRHD'),
+    ## Sidebar content
+    dashboardSidebar(
+        sidebarMenu(
+            id = "sidebar",
+            menuItem("Demographics", tabName = "Demographics", icon = icon("users")),
+            menuItem("Healthcare", tabName = "Healthcare", icon = icon("notes-medical")),
+            menuItem("Risk Factors", tabName = "riskfactors", icon = icon("heartbeat")),
+            menuItem("Outcomes", tabName = "Outcomes", icon = icon("universal-access"))
+        )
+    ),
+    ## Body content
+    dashboardBody(
+        tabItems(
+            tabItem(tabName = "Demographics",
+                    mainPanel(
+                        h4("Last updated 5/11/2022 at 11:00 a.m.")
+                    ),
+                    fluidRow(
+                        tabBox(
+                            width = 12,
+                            tabPanel('Overview', reactableOutput('dem_react')
+                            )
+                        ),
+                    )
+            ),
+            tabItem(tabName = "Healthcare",
+                    fluidRow(
+                        tabBox(
+                            width = 12,
+                            tabPanel('Crude Rates & Percentages', reactableOutput('hlth_react')),
+                            tabPanel('Poverty', reactableOutput('hlth_react_pov')),
+                            tabPanel('Race/Ethnicity', reactableOutput('hlth_react_race')),
+                            
+                        ),
+                    )
+            ),
+            tabItem(tabName = "riskfactors",
+                    fluidRow(
+                        tabBox(
+                            width = 12,
+                            tabPanel('Crude Rates & Percentages', reactableOutput('risk_react')
+                            ),
+                            tabPanel('Age-Adjusted Rates & Percentages', reactableOutput('risk_react_aa')
+                            ),
+                            tabPanel('Poverty', reactableOutput('risk_react_pov')
+                            ),
+                            tabPanel('Race/Ethnicity', reactableOutput('risk_react_race')
+                            ),
+                        ),
+                    )
+            ),
+            tabItem(tabName = "Outcomes",
+                    fluidRow(
+                        tabBox(
+                            width = 12,
+                            tabPanel('Crude Rates & Percentages', reactableOutput('outcomes_react')
+                            ),
+                            tabPanel('Age-Adjusted Rates & Percentages', reactableOutput('outcomes_react_aa')
+                            ),
+                            tabPanel('Poverty', reactableOutput('outcomes_react_pov')
+                            ),
+                            tabPanel('Race/Ethnicity', reactableOutput('outcomes_react_race')
+                            ),
+                        ),
+                    )
+            )
+        )
+>>>>>>> 744142d7ce8f7221a874cedf5fddf481b03f2d31
     )
   ),
   ## Body content
@@ -1475,6 +1561,7 @@ ui <- dashboardPage(
 
 
 server <- function(input, output) {
+<<<<<<< HEAD
   output$dem_react <- renderReactable({
     dem_react
   })
@@ -1522,6 +1609,55 @@ server <- function(input, output) {
     outcomes_react_race
   })
   
+=======
+    output$dem_react <- renderReactable({
+        dem_react
+    })
+    
+    output$hlth_react <- renderReactable({
+        hlth_react
+    })
+    
+    output$hlth_react_pov <- renderReactable({
+        hlth_react_pov
+    })
+    
+    output$hlth_react_race <- renderReactable({
+        hlth_react_race
+    })
+    
+    output$risk_react <- renderReactable({
+        risk_react
+    })
+    
+    output$outcomes_react <- renderReactable({
+        outcomes_react
+    })
+    
+    output$risk_react_aa <- renderReactable({
+        risk_react_aa
+    })
+    
+    output$outcomes_react_aa <- renderReactable({
+        outcomes_react_aa
+    })
+    
+    output$risk_react_pov <- renderReactable({
+        risk_react_pov
+    })
+    
+    output$outcomes_react_pov <- renderReactable({
+        outcomes_react_pov
+    })
+    output$risk_react_race <- renderReactable({
+        risk_react_race
+    })
+    
+    output$outcomes_react_race <- renderReactable({
+        outcomes_react_race
+    })
+    
+>>>>>>> 744142d7ce8f7221a874cedf5fddf481b03f2d31
 }
 
 shinyApp(ui, server)
